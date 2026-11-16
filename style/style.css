@@ -754,21 +754,43 @@ nav.sobre-claro { color: #021612; }
 footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100vh;
     height: 100svh;
     min-height: 320px;
     padding-top: var(--margemTopo); /* só libera o espaço da navbar; sem margem lateral */
 }
+#agradecimentos{
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    min-height: 80vh;
+    width: 100%;
+}
+#textAgr {
+    font-family:"Crafty Girls", cursive;
+    font-size: clamp(24px, 5vw, 80px);
+    height: 60%;
+    padding-top: 0;
+    max-width: 100%;
+    min-height: 60%;
+}
 
 #gifPixel {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-end;
     --ajusteGif: cover; /* cover = preenche a área | contain = mostra inteiro */
     flex: 1;
     min-height: 0;
+    width: 100%;
     overflow: hidden;
+    z-index: 10;
 }
 #gifPixel img {
     display: block;
-    width: 100%;
+    width: 30%;
     height: 100%;
     object-fit: var(--ajusteGif);
     image-rendering: pixelated; /* mantém os pixels nítidos */
@@ -783,6 +805,8 @@ footer {
     gap: 20px;
     padding: 0 40px;
     border-top: 1px solid #4f7a6b;
+    max-height: 20vh;
+    width: 100%;
 }
 
 #tituloCtt {
