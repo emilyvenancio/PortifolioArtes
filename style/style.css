@@ -303,7 +303,7 @@ nav.sobre-claro { color: #021612; }
     padding: 15px 20px;
     color: #F7F5F1;
     background-color: #6B056B;
-    font-size: clamp(10px, 2.4vw, 20px);
+    font-size: clamp(15px, 2.4vw, 20px);
     text-align: center;
     border-radius: 5px;
 }
@@ -397,8 +397,9 @@ nav.sobre-claro { color: #021612; }
 .slideEv.ativo { display: block; }
 
 /* tablet e celular: carrossel em cima, cards em grade embaixo */
-@media (max-width: 1100px) {
+@media (max-width: 1240px) {
     #palcoEv {
+        max-width: 760px;
         grid-template-columns: 1fr 1fr;
         align-items: start;
         gap: 16px;
@@ -718,6 +719,7 @@ nav.sobre-claro { color: #021612; }
     color: #021612;
     text-align: center;
     border-radius: 20px;
+    gap: .25em;
 }
 
 /* carrossel: seta | imagens | seta */
@@ -838,4 +840,34 @@ footer {
         text-align: center;
     }
     #contato1 { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 600px) {
+    .carrosselEv,
+    .carrosselProj,
+    .carrosselIlus {
+        position: relative;
+        grid-template-columns: minmax(0, 1fr);
+        --fundoSeta: rgba(247, 245, 241, .9);
+    }
+    .carrosselEv,
+    .carrosselProj { --fundoSeta: rgba(2, 22, 18, .65); }
+
+    .slidesEv { grid-column: 1; }
+
+    .carrosselEv .seta,
+    .carrosselProj .seta,
+    .carrosselIlus .seta {
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        z-index: 2;
+        opacity: 1;
+        background-color: var(--fundoSeta);
+    }
+    .carrosselEv .seta-voltar,
+    .carrosselProj .seta-voltar,
+    .carrosselIlus .seta-voltar  { left: 8px; }
+    .carrosselEv .seta-avancar,
+    .carrosselProj .seta-avancar,
+    .carrosselIlus .seta-avancar { right: 8px; }
 }
