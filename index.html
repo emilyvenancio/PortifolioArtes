@@ -10,13 +10,35 @@
 
     <title>Emily Venancio</title>
 
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="description" content="Portfólio de Emily Venancio, artista de Marília: poesia falada, literatura, ações culturais, audiovisual, projetos digitais e artes visuais.">
+
+    <meta name="theme-color" content="#021612">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:locale" content="pt_BR">
+
+    <meta property="og:site_name" content="Emily Venancio">
+
+    <meta property="og:title" content="Emily Venancio — Portfólio artístico">
+
+    <meta property="og:description" content="Poesia falada, literatura, ações culturais, audiovisual, projetos digitais e artes visuais.">
+
+    <meta property="og:image" content="https://raw.githubusercontent.com/emilyvenancio/PortifolioArtes/main/imagens/emily/imgPrincipal.webp">
+
+    <meta property="og:image:alt" content="Retrato de Emily Venancio">
+
+    <meta property="og:image:width" content="800">
+
+    <meta property="og:image:height" content="800">
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="./style/reset.css">
 
@@ -93,15 +115,9 @@
             </div>
 
             <img
-
                 id="imgHome"
-
-                src="./imagens/emily/imgPrincipal.png"
-
-                alt="Foto de Emily Venancio"
-
-            >
-
+                src="./imagens/emily/imgPrincipal.webp"
+                alt="Foto de Emily Venancio" fetchpriority="high" decoding="async">
         </section>
 
         <section id="literatura">
@@ -112,43 +128,35 @@
 
                     <img
 
-                        src="./imagens/literatura/zineLivros.jpeg"
+                        src="./imagens/literatura/zineLivros.webp"
 
                         alt="Zines e livros"
 
-                        class="slider ativo"
-
-                    >
+                        class="slider ativo" loading="lazy" decoding="async">
 
                     <img
 
-                        src="./imagens/literatura/zineEmily.JPG"
+                        src="./imagens/literatura/zineEmily.webp"
 
                         alt="Emily com seu zine"
 
-                        class="slider"
-
-                    >
+                        class="slider" loading="lazy" decoding="async">
 
                     <img
 
-                        src="./imagens/literatura/livretopremioslam.jpg"
+                        src="./imagens/literatura/livretopremioslam.webp"
 
                         alt="Livreto e premiações"
 
-                        class="slider"
-
-                    >
+                        class="slider" loading="lazy" decoding="async">
 
                     <img
 
-                        src="./imagens/literatura/zineMesa.JPG"
+                        src="./imagens/literatura/zineMesa.webp"
 
                         alt="Zines expostos sobre uma mesa"
 
-                        class="slider"
-
-                    >
+                        class="slider" loading="lazy" decoding="async">
 
                 </div>
 
@@ -180,11 +188,11 @@
 
             <div id="livreto">
 
-                <h1 id="titLiteratura">
+                <h2 id="titLiteratura">
 
                     Escrita <span class="segundaPalavra">Criativa</span> 
 
-                </h1>
+                </h2>
 
                 <p class="textLiteratura">
 
@@ -199,20 +207,15 @@
                     é revolução". <br>
 
                     <span id="textLiv">Poesie-se!</span>
-
                 </p>
-
                 <div id="livro">
-
                     <img
 
                         class="livroImg"
 
-                        src="./imagens/literatura/livrovenda.jpeg"
+                        src="./imagens/literatura/livrovenda.webp"
 
-                        alt="Capa do livro disponível para compra"
-
-                    >
+                        alt="Capa do livro disponível para compra" loading="lazy" decoding="async">
 
                     <a
 
@@ -234,11 +237,11 @@
 
             <div id="cabecalhoEv">
 
-                <h1 id="tituloEventos">
+                <h2 id="tituloEventos">
 
                     Ações <span class="segundaPalavra">Culturais</span>
 
-                </h1>
+                </h2>
 
                 <p id="subEventos">
 
@@ -263,6 +266,8 @@
                         role="button"
 
                         tabindex="0"
+
+                        aria-pressed="false"
 
                         data-evento="oficina"
 
@@ -289,6 +294,8 @@
                         role="button"
 
                         tabindex="0"
+
+                        aria-pressed="false"
 
                         data-evento="intervencoes"
 
@@ -326,339 +333,213 @@
 
                         <img
 
-                            src="./imagens/eventos/oficinaZIne/ofcZine.JPG"
+                            src="./imagens/eventos/oficinaZIne/ofcZine.webp"
 
-                            alt="Oficina de Fanzine 1"
+                            alt="Emily orienta participantes durante uma oficina de fanzine em uma biblioteca."
 
                             class="slideEv ativo"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="oficina"
-
-                        >
+                            data-evento="oficina" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/oficinaZIne/ofcZine2.JPG"
+                            src="./imagens/eventos/oficinaZIne/ofcZine2.webp"
 
-                            alt="Oficina de Fanzine 2"
+                            alt="Participantes dobram e recortam papéis em uma oficina de fanzine na biblioteca."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="oficina"
-
-                        >
+                            data-evento="oficina" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/oficinaZIne/ofcZine3.JPG"
+                            src="./imagens/eventos/oficinaZIne/ofcZine3.webp"
 
-                            alt="Oficina de Fanzine 3"
+                            alt="Emily mostra um fanzine pronto ao grupo durante a oficina."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="oficina"
-
-                        >
+                            data-evento="oficina" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/oficinaZIne/ofcZine4.JPG"
+                            src="./imagens/eventos/oficinaZIne/ofcZine4.webp"
 
-                            alt="Oficina de Fanzine 4"
+                            alt="Participante desenha corações em seu fanzine artesanal."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="oficina"
-
-                        >
+                            data-evento="oficina" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/interveçãoPovoada/povoada2.jpeg"
+                            src="./imagens/eventos/intervencaoPovoada/povoada2.webp"
 
-                            alt="Intervenção Povoada 1"
+                            alt="Arte de divulgação de intervenção poética com o retrato de Coala e um megafone."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="intervencoes"
-
-                        >
+                            data-evento="intervencoes" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/interveçãoPovoada/povoada2026.jpeg"
+                            src="./imagens/eventos/intervencaoPovoada/povoada2026.webp"
 
-                            alt="Intervenção Povoada 2"
+                            alt="Emily declama ao microfone durante uma intervenção poética."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="intervencoes"
-
-                        >
+                            data-evento="intervencoes" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/intervençãoReiko/intRk1.jpeg"
+                            src="./imagens/eventos/intervencaoReiko/intRk1.webp"
 
-                            alt="Intervenção Reiko 1"
+                            alt="Participantes reunidos diante de cartazes durante uma intervenção poética na Escola Reiko."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="intervencoes"
-
-                        >
+                            data-evento="intervencoes" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/intervençãoReiko/intRk2.jpeg"
+                            src="./imagens/eventos/intervencaoReiko/intRk2.webp"
 
-                            alt="Intervenção Reiko 2"
+                            alt="Emily lê um poema ao microfone durante uma intervenção na Escola Reiko."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="intervencoes"
-
-                        >
+                            data-evento="intervencoes" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/intervençãoReiko/intRk3.jpeg"
+                            src="./imagens/eventos/intervencaoReiko/intRk3.webp"
 
-                            alt="Intervenção Reiko 3"
+                            alt="Emily e três participantes posam juntos diante de cartazes poéticos na Escola Reiko."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="intervencoes"
-
-                        >
+                            data-evento="intervencoes" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/intervençãoReiko/stencilRk.jpeg"
+                            src="./imagens/eventos/intervencaoReiko/stencilRk.webp"
 
-                            alt="Stencil Reiko"
+                            alt="Cartazes com retrato de Coala e versos de poesia colados em um mural."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="intervencoes"
-
-                        >
+                            data-evento="intervencoes" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamSubterraneo/sub2026.jpg"
+                            src="./imagens/eventos/slamSubterraneo/sub2026.webp"
 
-                            alt="Lançamento Livreto 1"
+                            alt="Emily apresenta seu livreto ao público ao ar livre, com microfone e celular na mão."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="lancamento"
-
-                        >
+                            data-evento="lancamento" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamSubterraneo/sub20261.jpeg"
+                            src="./imagens/eventos/slamSubterraneo/sub20261.webp"
 
-                            alt="Lançamento Livreto 2"
+                            alt="Texto de apresentação de Emily e do livreto Para que eu te lembre do meu sobrenome."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="lancamento"
-
-                        >
+                            data-evento="lancamento" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamSubterraneo/subterraneo.jpeg"
+                            src="./imagens/eventos/slamSubterraneo/subterraneo.webp"
 
-                            alt="Lançamento Livreto 3"
+                            alt="Cartaz do lançamento do livreto com retrato de Emily e data 23 de maio."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="lancamento"
-
-                        >
+                            data-evento="lancamento" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamSubterraneo/subt2.jpeg"
+                            src="./imagens/eventos/slamSubterraneo/subt2.webp"
 
-                            alt="Lançamento Livreto 4"
+                            alt="Cartaz de divulgação do livreto de Emily Venancio."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="lancamento"
-
-                        >
+                            data-evento="lancamento" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/semanaHiphop/slamsh.jpeg"
+                            src="./imagens/eventos/semanaHiphop/slamsh.webp"
 
-                            alt="Semana HipHop 1"
+                            alt="Emily declama ao microfone em um evento da Semana HipHop."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/semanaHiphop/slamsh1.jpeg"
+                            src="./imagens/eventos/semanaHiphop/slamsh1.webp"
 
-                            alt="Semana HipHop 2"
+                            alt="Emily segura o microfone e o celular enquanto recita na Semana HipHop."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/semanaHiphop/slamSh2.jpeg"
+                            src="./imagens/eventos/semanaHiphop/slamSh2.webp"
 
-                            alt="Semana HipHop 3"
+                            alt="Emily recita ao microfone de perfil durante a Semana HipHop."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamNacasa/nacasafev.jpeg"
+                            src="./imagens/eventos/slamNacasa/nacasafev.webp"
 
-                            alt="Slam na Casa Fev"
+                            alt="Emily consulta o celular ao microfone durante uma edição de fevereiro do Slam na Casa."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamNacasa/nacasmar.jpeg"
+                            src="./imagens/eventos/slamNacasa/nacasmar.webp"
 
-                            alt="Slam na Casa Mar"
+                            alt="Artista se apresenta de costas para o público durante uma edição do Slam na Casa."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamTransbordar/slamT.jpeg"
+                            src="./imagens/eventos/slamTransbordar/slamT.webp"
 
-                            alt="Slam Transbordar 1"
+                            alt="Emily recita ao microfone durante o Slam Transbordar."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/eventos/slamTransbordar/transbordar.jpeg"
+                            src="./imagens/eventos/slamTransbordar/transbordar.webp"
 
-                            alt="Slam Transbordar 2"
+                            alt="Participantes e organizadores reunidos ao final do Slam Transbordar, segurando a faixa do evento."
 
                             class="slideEv"
 
-                            role="button"
-
-                            tabindex="0"
-
-                            data-evento="slam"
-
-                        >
+                            data-evento="slam" loading="lazy" decoding="async">
 
                     </div>
 
@@ -683,6 +564,8 @@
                         role="button"
 
                         tabindex="0"
+
+                        aria-pressed="false"
 
                         data-evento="lancamento"
 
@@ -709,6 +592,8 @@
                         role="button"
 
                         tabindex="0"
+
+                        aria-pressed="false"
 
                         data-evento="slam"
 
@@ -740,11 +625,11 @@
 
                 <div class="audiovisual-container">
 
-                    <h1 class="titAudiovisual">
+                    <h2 class="titAudiovisual">
 
                         Arte & <span class="segundaPalavra">Bastidores</span>
 
-                    </h1>
+                    </h2>
 
                     <p class="descAudiovisual">
 
@@ -774,11 +659,9 @@
 
                                 <img
 
-                                    src="./imagens/audiovisual/rebobinando/capaReb.jpeg"
+                                    src="./imagens/audiovisual/rebobinando/capaReb.webp"
 
-                                    alt="Capa Rebobinando"
-
-                                >
+                                    alt="Capa Rebobinando" loading="lazy" decoding="async">
 
                                 <div class="legenda-slide">
 
@@ -798,11 +681,9 @@
 
                                 <img
 
-                                    src="./imagens/audiovisual/rebobinando/mkofReb.jpeg"
+                                    src="./imagens/audiovisual/rebobinando/mkofReb.webp"
 
-                                    alt="Making of Rebobinando"
-
-                                >
+                                    alt="Making of Rebobinando" loading="lazy" decoding="async">
 
                                 <p class="legenda-slide">
 
@@ -818,11 +699,9 @@
 
                                 <img
 
-                                    src="./imagens/audiovisual/shadenfreude/mkofSha.jpeg"
+                                    src="./imagens/audiovisual/shadenfreude/mkofSha.webp"
 
-                                    alt="Making of Schadenfreude"
-
-                                >
+                                    alt="Making of Schadenfreude" loading="lazy" decoding="async">
 
                                 <p class="legenda-slide">
 
@@ -838,11 +717,9 @@
 
                                 <img
 
-                                    src="./imagens/audiovisual/neo-m/divulgaNeom.jpeg"
+                                    src="./imagens/audiovisual/neo-m/divulgaNeom.webp"
 
-                                    alt="Divulgação Neo-M"
-
-                                >
+                                    alt="Divulgação Neo-M" loading="lazy" decoding="async">
 
                                 <p class="legenda-slide">
 
@@ -876,11 +753,11 @@
 
         <section id="projetosDigitais">
 
-            <h1 id="tituloProjetos">
+            <h2 id="tituloProjetos">
 
                 Web <span class="segundaPalavra">Design</span>
 
-            </h1>
+            </h2>
 
             <div id="wiframes" class="projeto">
 
@@ -898,27 +775,23 @@
 
                         <img
 
-                            src="./imagens/projetosDigitais/apresenteaiMockupGrid.jpg"
+                            src="./imagens/projetosDigitais/apresenteaiMockupGrid.webp"
 
                             alt="Mockups Apresente.aí"
 
                             class="slideProj ativo"
 
-                            data-texto="Mockup do projeto 'Apresente.AI', uma ia generativa de imagens e textos para estudantes."
-
-                        >
+                            data-texto="Mockup do projeto 'Apresente.AI', uma ia generativa de imagens e textos para estudantes." loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/projetosDigitais/bobieMockupGrid.jpg"
+                            src="./imagens/projetosDigitais/bobieMockupGrid.webp"
 
                             alt="Mockups Bobie"
 
                             class="slideProj"
 
-                            data-texto="Mockups do projeto Bobie, um site para adoção de pets."
-
-                        >
+                            data-texto="Mockups do projeto Bobie, um site para adoção de pets." loading="lazy" decoding="async">
 
                     </div>
 
@@ -960,39 +833,33 @@
 
                         <img
 
-                            src="./imagens/projetosDigitais/inicioGame.png"
+                            src="./imagens/projetosDigitais/inicioGame.webp"
 
                             alt="Tela inicial do jogo"
 
                             class="slideProj ativo"
 
-                            data-texto="Tela inicial do jogo."
-
-                        >
+                            data-texto="Tela inicial do jogo." loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/projetosDigitais/selecaoGame.png"
+                            src="./imagens/projetosDigitais/selecaoGame.webp"
 
                             alt="Tela de seleção do jogo"
 
                             class="slideProj"
 
-                            data-texto="Tela de seleção do jogo."
-
-                        >
+                            data-texto="Tela de seleção do jogo." loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/projetosDigitais/principalGame.png"
+                            src="./imagens/projetosDigitais/principalGame.webp"
 
                             alt="Tela principal do jogo"
 
                             class="slideProj"
 
-                            data-texto="Tela principal do jogo."
-
-                        >
+                            data-texto="Tela principal do jogo." loading="lazy" decoding="async">
 
                     </div>
 
@@ -1034,11 +901,11 @@
 
             <div class="conteudoIlus">
 
-                <h1 id="tituloIlustracoes">
+                <h2 id="tituloIlustracoes">
 
                     Obras <span class="segundaPalavra">Visuais</span>
 
-                </h1>
+                </h2>
 
                 <div class="carrosselIlus">
 
@@ -1054,78 +921,62 @@
 
                         <img
 
-                            src="./imagens/ilustracoes/olhosIlustra.jpg"
+                            src="./imagens/ilustracoes/olhosIlustra.webp"
 
-                            alt="Ilustração 1"
+                            alt="Olho vermelho pintado sobre uma tela azul, entre duas mãos."
 
-                            class="slideIlus ativo"
-
-                        >
+                            class="slideIlus ativo" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/ilustracoes/loucoIlustra.jpg"
+                            src="./imagens/ilustracoes/loucoIlustra.webp"
 
-                            alt="Ilustração 2"
+                            alt="Mulher de cabelos loiros e vestido verde acompanha um gato em um campo."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
 
                         <img
 
-                            src="./imagens/ilustracoes/kaliIlustra.jpg"
+                            src="./imagens/ilustracoes/kaliIlustra.webp"
 
-                            alt="Ilustração 3"
+                            alt="Retrato de Kali com pele azul, olhos dourados e a língua para fora."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
                          <img
 
-                            src="./imagens/ilustracoes/derekIlustra.jpg"
+                            src="./imagens/ilustracoes/derekIlustra.webp"
 
-                            alt="Ilustração 4"
+                            alt="Retrato em aquarela de um bebê com olhos azuis."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
                            <img
 
-                            src="./imagens/ilustracoes/carnavalIlustra.jpg"
+                            src="./imagens/ilustracoes/carnavalIlustra.webp"
 
-                            alt="Ilustração 5"
+                            alt="Rosto desenhado em preto e branco, cercado por flores e folhas."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
                         <img
 
-                            src="./imagens/ilustracoes/bruxaIlustra.jpg"
+                            src="./imagens/ilustracoes/bruxaIlustra.webp"
 
-                            alt="Ilustração 6"
+                            alt="Bruxa de chapéu marrom, cabelos verdes e a palavra movimento escrita no pescoço."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
                         <img
 
-                            src="./imagens/ilustracoes/alergiaIlustra.jpg"
+                            src="./imagens/ilustracoes/alergiaIlustra.webp"
 
-                            alt="Ilustração 7"
+                            alt="Retrato de uma pessoa sorrindo, com cabelo amarelo e a palavra alergia ao fundo."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
                         <img
 
-                            src="./imagens/ilustracoes/ouroborosIlustra.jpg"
+                            src="./imagens/ilustracoes/ouroborosIlustra.webp"
 
-                            alt="Ilustração 8"
+                            alt="Serpente verde e preta enrolada em um círculo, com língua vermelha."
 
-                            class="slideIlus"
-
-                        >
+                            class="slideIlus" loading="lazy" decoding="async">
 
                     </div>
 
@@ -1153,7 +1004,7 @@
 
         <figure id="gifPixel">
 
-            <img src="./imagens/footer/persona.gif" alt="Obrigada pela visita!">
+            <img src="./imagens/footer/persona.gif" alt="" loading="lazy" decoding="async">
 
         </figure>
 
@@ -1161,13 +1012,13 @@
 
         <div id="infoRodape">
 
-            <h1 id="tituloCtt">Contato</h1>
+            <h2 id="tituloCtt">Contato</h2>
 
             <div id="contato1">
 
                 <a id="email" href="mailto:projetoscoala@gmail.com">e-mail: projetoscoala@gmail.com</a>
 
-                <a id="linkedin" href="https://www.linkedin.com/in/emily-vitória-661117257?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a id="linkedin" href="https://www.linkedin.com/in/emily-vitória-661117257?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="iconeLinkedin" aria-hidden="true">in</span></a>
 
             </div>
 
@@ -1176,54 +1027,6 @@
         </div>
 
     </footer>
-
-    <dialog id="lightbox" aria-label="Galeria de fotos dos eventos">
-
-        <img src="" alt="">
-
-        <button
-
-            type="button"
-
-            id="lbVoltar"
-
-            aria-label="Imagem anterior"
-
-        >
-
-            &#10094;
-
-        </button>
-
-        <button
-
-            type="button"
-
-            id="lbAvancar"
-
-            aria-label="Próxima imagem"
-
-        >
-
-            &#10095;
-
-        </button>
-
-        <button
-
-            type="button"
-
-            id="lbFechar"
-
-            aria-label="Fechar"
-
-        >
-
-            &times;
-
-        </button>
-
-    </dialog>
 
 </body>
 

@@ -56,7 +56,7 @@
 
     function atualizar() {
         agendado = false;
-        const y = nav.offsetHeight / 2;
+        const y = nav.getBoundingClientRect().bottom + 20;
 
         const secao = secoes.find(s => {
             const r = s.getBoundingClientRect();
@@ -96,106 +96,121 @@
 })();
 
 
-// LITERATURA
 (function () {
-    const slides = document.querySelectorAll('#literatura .slider');
-    if (!slides.length) return;
+    function criarCarrossel({ slides, avancar, voltar, area, aoMudar = () => {} }) {
+        if (!slides.length || !avancar || !voltar || !area) return;
 
-    let atual = 0;
+        let atual = 0;
+        let inicio = null;
 
-    function mostrar(i) {
-        atual = (i + slides.length) % slides.length;
-        slides.forEach((s, n) => s.classList.toggle('ativo', n === atual));
+        function mostrar(indice) {
+            atual = (indice + slides.length) % slides.length;
+            slides.forEach((slide, n) => slide.classList.toggle('ativo', n === atual));
+            aoMudar(atual, slides[atual]);
+        }
+
+        avancar.addEventListener('click', () => mostrar(atual + 1));
+        voltar.addEventListener('click', () => mostrar(atual - 1));
+
+        area.addEventListener('pointerdown', e => {
+            if (e.target instanceof Element && e.target.closest('button, a')) return;
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            inicio = { x: e.clientX, y: e.clientY };
+        });
+
+        area.addEventListener('pointerup', e => {
+            if (!inicio) return;
+
+            const dx = e.clientX - inicio.x;
+            const dy = e.clientY - inicio.y;
+            inicio = null;
+
+            if (Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy) * 1.2) return;
+            mostrar(atual + (dx < 0 ? 1 : -1));
+        });
+
+        area.addEventListener('pointercancel', () => { inicio = null; });
+
+        mostrar(0);
+        return mostrar;
     }
 
-    document.getElementById('avancarCarrossel').addEventListener('click', () => mostrar(atual + 1));
-    document.getElementById('voltarCarrossel').addEventListener('click', () => mostrar(atual - 1));
-})();
+    // LITERATURA
+    criarCarrossel({
+        slides: document.querySelectorAll('#literatura .slider'),
+        avancar: document.getElementById('avancarCarrossel'),
+        voltar: document.getElementById('voltarCarrossel'),
+        area: document.querySelector('#literatura .carrossel')
+    });
 
 
-// EVENTOS
-(function () {
-    const slides = document.querySelectorAll('#eventos .slideEv');
-    const cards = document.querySelectorAll('#eventos .cardEv');
-    if (!slides.length) return;
+    // EVENTOS
+    const slidesEv = document.querySelectorAll('#eventos .slideEv');
+    const cardsEv = document.querySelectorAll('#eventos .cardEv');
+    const mostrarEvento = criarCarrossel({
+        slides: slidesEv,
+        avancar: document.getElementById('avancarEv'),
+        voltar: document.getElementById('voltarEv'),
+        area: document.querySelector('#eventos .carrosselEv'),
+        aoMudar: (_, slide) => {
+            cardsEv.forEach(card => {
+                const ativo = card.dataset.evento === slide.dataset.evento;
+                card.classList.toggle('ativo', ativo);
+                card.setAttribute('aria-pressed', ativo);
+            });
+        }
+    });
 
-    let atual = 0;
+    cardsEv.forEach(card => {
+        function selecionar() {
+            const indice = [...slidesEv].findIndex(slide => slide.dataset.evento === card.dataset.evento);
+            if (indice >= 0) mostrarEvento(indice);
+        }
 
-    function mostrar(i) {
-        atual = (i + slides.length) % slides.length;
-        slides.forEach((s, n) => s.classList.toggle('ativo', n === atual));
-
-        const evento = slides[atual].dataset.evento;
-
-        cards.forEach(c => c.classList.toggle('ativo', c.dataset.evento === evento));
-    }
-
-    document.getElementById('avancarEv').addEventListener('click', () => mostrar(atual + 1));
-    document.getElementById('voltarEv').addEventListener('click', () => mostrar(atual - 1));
-
-    // Clicar num card leva à primeira foto daquele evento
-    cards.forEach(c => c.addEventListener('click', () => {
-        const i = [...slides].findIndex(s => s.dataset.evento === c.dataset.evento);
-        if (i >= 0) mostrar(i);
-    }));
-
-    mostrar(0);
-})();
-
-
-// AUDIOVISUAL
-(function () {
-    const slides = document.querySelectorAll('#audiovisual .audio-slide');
-    if (!slides.length) return;
-
-    let atual = 0;
-
-    function mostrar(i) {
-        const video = slides[atual].querySelector('video');
-        if (video) video.pause();
-
-        atual = (i + slides.length) % slides.length;
-        slides.forEach((s, n) => s.classList.toggle('ativo', n === atual));
-    }
-
-    document.getElementById('avancarAudio').addEventListener('click', () => mostrar(atual + 1));
-    document.getElementById('voltarAudio').addEventListener('click', () => mostrar(atual - 1));
-})();
+        card.addEventListener('click', selecionar);
+        card.addEventListener('keydown', e => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            e.preventDefault();
+            card.click();
+        });
+    });
 
 
-// PROJETOS DIGITAIS
-document.querySelectorAll('#projetosDigitais .projeto').forEach(projeto => {
-    const slides = projeto.querySelectorAll('.slideProj');
-    const texto = projeto.querySelector('.explicacaoProj p');
-    let atual = 0;
-
-    function mostrar(i) {
-        atual = (i + slides.length) % slides.length;
-        slides.forEach((s, n) => s.classList.toggle('ativo', n === atual));
-        texto.textContent = slides[atual].dataset.texto;
-    }
-
-    projeto.querySelector('.seta-avancar').addEventListener('click', () => mostrar(atual + 1));
-    projeto.querySelector('.seta-voltar').addEventListener('click', () => mostrar(atual - 1));
-});
+    // AUDIOVISUAL
+    criarCarrossel({
+        slides: document.querySelectorAll('#audiovisual .audio-slide'),
+        avancar: document.getElementById('avancarAudio'),
+        voltar: document.getElementById('voltarAudio'),
+        area: document.querySelector('#audiovisual .carrossel-audio')
+    });
 
 
-///ilustras
-(function () {
+    // PROJETOS DIGITAIS
+    document.querySelectorAll('#projetosDigitais .projeto').forEach(projeto => {
+        const texto = projeto.querySelector('.explicacaoProj p');
+
+        criarCarrossel({
+            slides: projeto.querySelectorAll('.slideProj'),
+            avancar: projeto.querySelector('.seta-avancar'),
+            voltar: projeto.querySelector('.seta-voltar'),
+            area: projeto.querySelector('.carrosselProj'),
+            aoMudar: (_, slide) => { texto.textContent = slide.dataset.texto; }
+        });
+    });
+
+
+    ///ilustras
+    (function () {
     const secao = document.getElementById('ilustracoes');
     if (!secao) return;
 
-    // Carrossel
     const slides = secao.querySelectorAll('.slideIlus');
-    let atual = 0;
-
-    function mostrar(i) {
-        atual = (i + slides.length) % slides.length;
-        slides.forEach((s, n) => s.classList.toggle('ativo', n === atual));
-    }
-
-    secao.querySelector('.seta-avancar').addEventListener('click', () => mostrar(atual + 1));
-    secao.querySelector('.seta-voltar').addEventListener('click', () => mostrar(atual - 1));
+    criarCarrossel({
+        slides,
+        avancar: secao.querySelector('.seta-avancar'),
+        voltar: secao.querySelector('.seta-voltar'),
+        area: secao.querySelector('.carrosselIlus')
+    });
 
     // Tela de pintura
     const canvas = document.getElementById('telaPintura');
@@ -320,4 +335,5 @@ document.querySelectorAll('#projetosDigitais .projeto').forEach(projeto => {
             requestAnimationFrame(quadro);
         }
     });
+    })();
 })();
