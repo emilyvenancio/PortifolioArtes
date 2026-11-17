@@ -153,6 +153,7 @@ nav.sobre-claro { color: #021612; }
 }
 
 .navitem {
+    font-size: 20px;
 
     border-radius: 20px;
 
@@ -174,6 +175,24 @@ nav.sobre-claro { color: #021612; }
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
 
+}
+
+.navitem.ativo {
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+}
+
+.navitem.ativo a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #e78de7;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+nav.sobre-claro .navitem.ativo a {
+    text-decoration-color: #6B056B;
 }
 
 .navitem a {
@@ -288,7 +307,8 @@ nav.sobre-claro { color: #021612; }
 
     border-bottom: 5px solid #056c5c;
 
-    background-color: #6B056B;
+    background: linear-gradient(135deg, #056C5C 0%, #6B056B 60%, #b946b9 100%);
+
 
 }
 
@@ -826,9 +846,14 @@ nav.sobre-claro { color: #021612; }
 
     --alturaMidia: clamp(220px, 55vw, 380px);
     height: 100vh;
-    height: 100svh;
+    height: 100dvh;
     min-height: 0;
     box-sizing: border-box;
+    background-color: #021612;
+    background-image: url(../imagens/audiovisual/fitaCinema.png);
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 
     --corSeta: #6b056b;
 
@@ -885,26 +910,13 @@ nav.sobre-claro { color: #021612; }
     width: 100%;
     min-width: 0;
     min-height: 0;
+    flex: 1 1 auto;
 
     display: flex;
 
     justify-content: center;
 
     align-items: center;
-
-    background-color: #F7F5F1;
-
-    background-image: url(../imagens/audiovisual/fitaCinema.png);
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-repeat: no-repeat;
-
-    border-radius: 16px;
-
-    margin-top: 15px;
 
 }
 
@@ -960,9 +972,7 @@ nav.sobre-claro { color: #021612; }
 
     min-width: 0;
 
-    display: flex;
-
-    flex-direction: column;
+    display: grid;
 
 }
 
@@ -972,7 +982,10 @@ nav.sobre-claro { color: #021612; }
 
 .audio-slide { 
     min-width: 0;
-    display: none; 
+    grid-area: 1 / 1;
+    align-self: start;
+    visibility: hidden;
+    pointer-events: none;
 
     position: relative;
 
@@ -988,7 +1001,10 @@ nav.sobre-claro { color: #021612; }
 
 }
 
-.audio-slide.ativo { display: block; }
+.audio-slide.ativo {
+    visibility: visible;
+    pointer-events: auto;
+}
 
 #audiovisual .audio-slide img,
 
@@ -1045,17 +1061,32 @@ nav.sobre-claro { color: #021612; }
 @media (max-width: 700px) {
     #audiovisual {
         height: auto;
-        min-height: 100svh;
+        min-height: 100dvh;
         padding-top: 80px;
         padding-bottom: 30px;
     }
 }
 
-@media (max-height: 620px) and (min-width: 701px) {
+@media (max-height: 800px) and (min-width: 701px) {
     #audiovisual {
         height: auto;
-        min-height: 100svh;
+        min-height: 100dvh;
         --alturaMidia: clamp(150px, 34vh, 240px);
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .audiovisual-container { padding: 12px 20px; }
+
+    .descAudiovisual { margin-top: 8px; }
+
+    .carrossel-audio { margin-top: 16px; }
+}
+
+@media (max-height: 620px) and (min-width: 701px) {
+    #audiovisual {
+        padding-top: 70px;
+        --alturaMidia: clamp(130px, 30vh, 220px);
     }
 }
 
@@ -1477,81 +1508,54 @@ footer {
 
     height: 100vh;
 
-    height: 100svh;
-
-    min-height: 320px;
-
-    padding-top: var(--margemTopo);
-
-}
-
-#agradecimentos{
-    position: relative;
-
-    display: flex;
-
-    align-items: last baseline;
-
-    justify-content: center;
-
-    min-height: 80vh;
-
-    width: 100%;
-
-}
-
-#textAgr {
-
-    font-family:"Crafty Girls", cursive;
-
-    font-size: clamp(24px, 5vw, 80px);
-
-    height: 60%;
-
-    padding-top: 0;
-
-    max-width: 100%;
-
-    min-height: 60%;
-
-}
-
-#gifPixel {
-
-    display: flex;
-
-    position: absolute;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    --ajusteGif: cover;
-
-    flex: 1;
+    height: 100dvh;
 
     min-height: 0;
 
-    width: 100%;
+    padding-top: 60px;
 
-    overflow: hidden;
-
-    z-index: 10;
+    overflow-y: auto;
 
 }
 
+
+#agradecimentos {
+    position: relative;
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    min-height: 80vh;
+    width: 100%;
+}
+
+#textAgr {
+    font-family: "Crafty Girls", cursive;
+    font-size: clamp(24px, 5vw, 80px);
+    height: 60%;
+    padding-top: 0;
+    max-width: 100%;
+    min-height: 60%;
+}
+
+#gifPixel {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-end;
+    --ajusteGif: cover;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 10;
+}
+
 #gifPixel img {
-
     display: block;
-
     width: clamp(150px, 25vw, 350px);
-
-    height: auto;                     
-
+    height: auto;
     object-fit: contain;
-
     image-rendering: pixelated;
-
 }
 
 #infoRodape {
@@ -1570,7 +1574,7 @@ footer {
 
     border-top: 1px solid #4f7a6b;
 
-    max-height: 20vh;
+    max-height: none;
 
     width: 100%;
 
@@ -1678,6 +1682,36 @@ footer {
     }
 
     #contato1 { flex-wrap: wrap; justify-content: center; }
+
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    #gifPixel img { width: clamp(120px, 15vw, 180px); }
+
+}
+
+@media (max-width: 600px) {
+
+    #agradecimentos {
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        gap: 10px;
+    }
+
+    #textAgr { margin: 0; }
+
+    #gifPixel {
+        position: static;
+        width: auto;
+        height: auto;
+        flex: 0 0 auto;
+        justify-content: center;
+        overflow: visible;
+    }
+
+    #gifPixel img { width: clamp(120px, 35vw, 150px); }
 
 }
 

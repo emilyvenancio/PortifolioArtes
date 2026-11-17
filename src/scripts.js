@@ -32,8 +32,20 @@
     const nav = document.querySelector('nav');
     const secoes = [...document.querySelectorAll('main > section, footer')];
     if (!nav || !secoes.length) return;
+    const links = [...nav.querySelectorAll('#navbar a[href^="#"]')];
 
     let agendado = false;
+
+    function selecionar(href) {
+        links.forEach(link => {
+            const ativo = link.getAttribute('href') === href;
+            const item = link.parentElement;
+
+            item.classList.toggle('ativo', ativo);
+            if (ativo) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+        });
+    }
 
     function fundoDe(el) {
         const cor = getComputedStyle(el).backgroundColor;
@@ -57,6 +69,8 @@
         const [r, g, b] = cor.match(/\d+/g).map(Number);
         const claro = (r * 299 + g * 587 + b * 114) / 1000 > 150;
 
+        selecionar(`#${secao.id}`);
+
         nav.style.setProperty('--navFundo', cor);
         nav.classList.toggle('sobre-claro', claro);
     }
@@ -69,7 +83,16 @@
 
     window.addEventListener('scroll', pedir, { passive: true });
     window.addEventListener('resize', pedir);
+    window.addEventListener('hashchange', pedir);
+    window.addEventListener('pageshow', pedir);
+    window.addEventListener('load', () => {
+        const hash = window.location.hash;
+        if (links.some(link => link.getAttribute('href') === hash)) selecionar(hash);
+        pedir();
+    }, { once: true });
+    links.forEach(link => link.addEventListener('click', () => selecionar(link.getAttribute('href'))));
     atualizar();
+    requestAnimationFrame(atualizar);
 })();
 
 
