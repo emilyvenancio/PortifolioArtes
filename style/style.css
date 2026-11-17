@@ -39,7 +39,7 @@ section {
 
     position: relative;
 
-    min-height: 100vh;
+    min-height: 100dvh;
 
     width: 100%;
     padding: var(--margemTopo) var(--margemLateral) var(--margemBaixo);
@@ -860,10 +860,16 @@ nav.sobre-claro .navitem.ativo a {
 
 @media (min-width: 701px) {
     #eventos {
-        height: calc(100dvh - 55px);
-        min-height: 0;
-        overflow: hidden;
+        min-height: calc(100dvh - 55px);
         padding-bottom: 24px;
+    }
+}
+
+@media (min-width: 1241px) {
+    .colunaCardsEv .cardEv:last-child .painelEv {
+        top: auto;
+        bottom: 100%;
+        border-radius: 6px 6px 0 0;
     }
 }
 
@@ -1139,7 +1145,7 @@ nav.sobre-claro .navitem.ativo a {
 
     --corSeta: #f7f5f1;
 
-    min-height: 100svh;
+    min-height: 100dvh;
 
     display: grid;
 
@@ -1265,7 +1271,7 @@ nav.sobre-claro .navitem.ativo a {
 
     flex: 0 0 34%;
 
-    height: 50%;
+    height: auto;
 
     display: flex;
 
@@ -1278,8 +1284,6 @@ nav.sobre-claro .navitem.ativo a {
     gap: 14px;
 
     padding: 20px 24px;
-
-    overflow-y: auto;
 
     color: #F7F5F1;
 
@@ -1375,7 +1379,7 @@ nav.sobre-claro .navitem.ativo a {
 
     height: auto;
 
-    min-height: 100svh;
+    min-height: 100dvh;
 
     isolation: isolate;
 
